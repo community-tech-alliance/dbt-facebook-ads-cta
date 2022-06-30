@@ -1,0 +1,5 @@
+.DS_Store
+.idea*
+build/*
+logs/*
+dbt_modules/*
