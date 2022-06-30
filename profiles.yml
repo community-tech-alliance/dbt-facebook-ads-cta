@@ -1,0 +1,51 @@
+normalize:
+  outputs:
+
+# ===== DEV ENVIRONMENTS =====
+    dev-partner:
+      #Project id for the partner we are sending the data to.
+      project: #REPLACEME# #PARTNER-DEV-GOOGLE-PROJECT-ID
+      #Dataset in the partner project we are sending data to.
+      dataset: facebook_marketing
+      location: US
+      method: oauth
+      priority: interactive
+      retries: 1
+      threads: 8
+      type: bigquery
+    dev-cta:
+      project: #REPLACEME# #CTA-DEV-GOOGLE-PROJECT-ID
+      #dataset name must match the one in the destination connection!
+      #Dt is where the _airbyte_raw tables get delivered, and where the CTEs will look
+      dataset: PARTNER_facebook_marketing_cta
+      location: US
+      method: oauth
+      priority: interactive
+      retries: 1
+      threads: 8
+      type: bigquery
+
+# ===== PROD ENVIRONMENTS =====
+    prod-PARTNER:
+      #Project id for the partner we are sending the data to.
+      project: #REPLACEME# #PARTNER-PROD-GOOGLE-PROJECT-ID
+      #Dt is where the _airbyte_raw tables get delivered, and where the CTEs will look
+      dataset: facebook_marketing
+      location: US
+      method: oauth
+      priority: interactive
+      retries: 1
+      threads: 8
+      type: bigquery
+    prod-cta:
+      project: #REPLACEME# #CTA-PROD-GOOGLE-PROJECT-ID
+      #Dataset in the partner project we are sending data to.
+      dataset: PARTNER_facebook_marketing_cta
+      location: US
+      method: oauth
+      priority: interactive
+      retries: 1
+      threads: 8
+      type: bigquery
+
+  target: default
